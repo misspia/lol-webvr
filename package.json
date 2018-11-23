@@ -1,0 +1,23 @@
+{
+  "name": "lol-webvr",
+  "version": "1.0.0",
+  "description": "LoL visualizarion in WebVR",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misspia/lol-webvr.git"
+  },
+  "author": "misspia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misspia/lol-webvr/issues"
+  },
+  "homepage": "https://github.com/misspia/lol-webvr#readme",
+  "dependencies": {
+    "parcel": "^1.10.3",
+    "three": "^0.98.0"
+  }
+}
