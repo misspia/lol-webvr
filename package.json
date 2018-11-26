@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/misspia/lol-webvr#readme",
   "dependencies": {
+    "lodash": "^4.17.11",
     "parcel": "^1.10.3",
-    "three": "^0.98.0"
+    "three": "^0.98.0",
+    "three-orbit-controls": "^82.1.0"
   }
 }
