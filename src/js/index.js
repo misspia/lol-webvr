@@ -1,17 +1,24 @@
 import * as THREE from 'three';
-
 import SceneManager from './sceneManager';
-import championsJSON from '../data/champions.json';
-import itemsJSON from '../data/items.json';
 
+const root = document.getElementById('canvas');
+const audio = document.getElementById('audio');
 
-const champions = championsJSON.data;
-const items = itemsJSON.data;
+const {renderer, camera, target, scene, controls } = new SceneManager(root);
+renderer.vr.enabled = true;
 
-const root = document.getElementById('root');
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
 
-const scene = new SceneManager(root);
+const draw = () => {
+  requestAnimationFrame(draw);
+  renderer.render(scene, camera);
 
-console.log(champions);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  
+};
 
-
+draw();

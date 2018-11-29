@@ -19,7 +19,7 @@ export default class SceneManager {
         this.renderer.setSize(innerWidth, innerHeight);
         this.setClearColor(0x29233b);
         
-        const dpr = Math.mon(1.5, devicePixelRatio);
+        const dpr = Math.min(1.5, devicePixelRatio);
         this.renderer.setPixelRatio(dpr);
 
         const aspectRatio = innerWidth / innerHeight;
@@ -36,26 +36,27 @@ export default class SceneManager {
         this.resize();
 
         //event listeners
-        window.addEventListener('resize', this.resize);
+        window.addEventListener('resize', () => this.resize());
     }
-    resize = () => {
+    resize() {
          const { innerWidth, innerHeight } = window;
          this.camera.aspect = innerWidth / innerHeight;
          this.camera.updateProjectionMatrix();
+         this.renderer.setSize(innerWidth, innerHeight);
     }
-    setCameraPos = (x, y, z) => {
+    setCameraPos(x, y, z) {
         this.camera.position.set(x, y, z);
     }
-    lookAt = (x, y, z) => {
+    lookAt(x, y, z) {
         this.camera.lookAt(x, y, z);
     }
-    setClearColor = (hex) => {
+    setClearColor(hex) {
         this.renderer.setClearColor(hex);
     }
-    disableOrbitControls = () => {
+    disableOrbitControls() {
         this.controls.enabled = false;
     }
-    render = () => {
+    render() {
 
     }
 }
