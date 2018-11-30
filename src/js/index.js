@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import SceneManager from './sceneManager';
+import Audio from './audio';
 
 const root = document.getElementById('canvas');
 const audio = document.getElementById('audio');
