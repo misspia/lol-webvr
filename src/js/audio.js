@@ -1,18 +1,18 @@
 export default class Audio {
-  constructor({ file, fftSize }) {
-    this.file = file;
+  constructor({ audioElement, fftSize = 64, dataLength = 110 }) {
     this.fftSize = fftSize;
     this.sound = {};
-    this.audioContext = new AudioContext();    
-    this.data = new Uint8Array(110);
-    this.analyzer = {};
 
+    this.context = new AudioContext();
+    this.source = this.context.createMediaElementSource(audioElement);
+    this.analyser = this.context.createAnalyser();
 
-  }
-  init() {
+    this.source.connect(this.analyser);
+    this.source.connect(this.context.destination);
 
+    this.frequencyData = new Uint8Array(dataLength);
   }
   getByteFrequencyData() {
-    return this.analyzer.getByteFrequencyData(this.data);
+    return this.analyser.getByteFrequencyData(this.frequencyData);
   }
 }
